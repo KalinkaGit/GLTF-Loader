@@ -671,19 +671,11 @@ namespace GLTFLoader
                 int inputIndex = sampler["input"];
                 int outputIndex = sampler["output"];
 
-/*
                 std::vector<float> times = extractAnimationTimes(inputIndex);
                 std::vector<v3f> translations = extractTranslationKeys(outputIndex);
                 std::vector<v4f> rotations = extractRotationKeys(outputIndex);
                 std::vector<v3f> scales = extractScaleKeys(outputIndex);
-*/
 
-                std::vector<float> times = extractAnimationTimes(inputIndex);
-                // create empty vectors for translations, rotations, and scales
-                std::vector<v3f> translations = {};
-                std::vector<v4f> rotations = {};
-                std::vector<v3f> scales = {};
-        
                 size_t numKeys = times.size();
                 for (size_t i = 0; i < numKeys; ++i)
                 {
