@@ -13,3 +13,8 @@ add_library(GLTFLoader STATIC ${SOURCES})
 add_executable(GLTFLoaderTest "test/main.cpp")
 target_link_libraries(GLTFLoaderTest GLTFLoader)
 target_include_directories(GLTFLoaderTest PRIVATE "include")
+
+add_custom_command(TARGET GLTFLoader POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/release/include
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:GLTFLoader> ${CMAKE_SOURCE_DIR}/release/lib/libGLTFLoader.a
+)
